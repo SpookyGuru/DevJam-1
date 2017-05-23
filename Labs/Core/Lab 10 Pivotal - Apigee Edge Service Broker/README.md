@@ -134,7 +134,7 @@ PCF_SPACE: An org can contain multiple spaces. This is the space you will pick f
 	```
 	This should show apigee-edge as one of the available services.
 
-        **You Do NOT need to do this next step in a Shared PCF Space, such as during a DevJam**
+        You **Do NOT** need to do this next step in a Shared PCF Space, such as during a DevJam
 	```
 	cf create-service apigee-edge org apigee
 	```
