@@ -112,7 +112,7 @@ PCF_SPACE: An org can contain multiple spaces. This is the space you will pick f
 	tar xvf ssocli-bundle.zip
 	mkdir ~/.sso-cli
 	./get_token
-        cp -p valid_token.dat ~/.sso-cli/.
+	cp -p valid_token.dat ~/.sso-cli/.
 	```
 	
 	These steps will create an valid token to ~/.sso-cli/valid_token.dat
@@ -126,7 +126,9 @@ PCF_SPACE: An org can contain multiple spaces. This is the space you will pick f
 	You will use the access_token from the JSON 
 	
 5. Creating an Apigee Edge Service Broker binding for your app
+
         **You Do NOT need to do this step in a Shared PCF Space, such as during a DevJam**
+
 	We will now add apigee-edge service to our PCF_ORG.
 	First lets make sure that apigee-edge tile has been enabled for this org
 	```
@@ -148,19 +150,31 @@ PCF_SPACE: An org can contain multiple spaces. This is the space you will pick f
 	```
 
 6. Testing the API
+
 	Login to [https://apigee.com/edge](https://apigee.com/edge)
+
 	Go to API Proxies
+
 	You should see an API Proxy created by the PCF Service Broker- with the following name `cf-{your_initials}_helloapi.YOUR-SYSTEM-DOMAIN`
+
 	Select the API and select `TRACE` tab on the top right
+
 	Click on the `Start Trace Session`, the green button on the top left
-	Send a request to the same endpoint, as you did in step 2 - by copy/pasting the URL under the urls section of your app, to a new browser tab. `https://{URL OF YOUR APP}`
+
+	Send a request to the same endpoint, as you did in step 2 - by copy/pasting the URL under the urls section of your app, to a new browser tab.
+
+	`https://{URL OF YOUR APP}`
+
 	![image alt text](./media/image_0.png)
+
 	If you forgot the URL OF YOUR APP, you can get if through the following command (the output will have a urls section corresponding to your app)
 	```
 	cf apps
 	```
 	This time, when you send the request, the requst should show up in the trace of your API Proxy.
+
 	In essence, the API you have created from PCF is now managed by Apigee. oh, yeah! *Congratulations!*...
+
 	What does this mean
 	- You have analytics across all your APIs, created through PCF
 	- You can add authentication, traffic management and few more directly from your cf CLI, without logging into Apigee
