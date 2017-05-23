@@ -127,14 +127,14 @@ PCF_SPACE: An org can contain multiple spaces. This is the space you will pick f
 	
 5. Creating an Apigee Edge Service Broker binding for your app
 
-        **You Do NOT need to do this step in a Shared PCF Space, such as during a DevJam**
-
 	We will now add apigee-edge service to our PCF_ORG.
 	First lets make sure that apigee-edge tile has been enabled for this org
 	```
 	cf marketplace
 	```
 	This should show apigee-edge as one of the available services.
+
+        **You Do NOT need to do this next step in a Shared PCF Space, such as during a DevJam**
 	```
 	cf create-service apigee-edge org apigee
 	```
@@ -142,7 +142,7 @@ PCF_SPACE: An org can contain multiple spaces. This is the space you will pick f
 	To check that the service has been enabled, try the following command
 	
 	```
-	cf service $PCF_ORG
+	cf service apigee
 	```
 	Now we will bind the app (Our Node.js app that servers the Hello API) to an Apigee ORG with the following command.
 	```
