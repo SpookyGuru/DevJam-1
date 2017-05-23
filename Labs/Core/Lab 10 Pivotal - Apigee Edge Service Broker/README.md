@@ -36,17 +36,17 @@ PCF_ORG: The instance of your PCF deployment. If you are familiar with PCF, you 
 
 PCF_SPACE: An org can contain multiple spaces. This is the space you will pick for this lab
 
-0. Setup Environment Variables
+1. Setup Environment Variables
    ```
    export PCF_DOMAIN=http://api.system.google.pcflabs.io
    export PCF_ORG=DevJam
    export PCF_SPACE=apigeeedge
    export PCF_APPMGR=apps.google.pcflabs.io
-   export ORG={org-name}
-   export ENV={env-name}
+   export ORG={Apigee org-name}
+   export ENV={Apigee env-name}
    ```
 
-1. Login to the PCF Environment
+2. Login to the PCF Environment
 	Open Shell (CLI for windows). CD to your working directory
 
 	```
@@ -63,7 +63,7 @@ PCF_SPACE: An org can contain multiple spaces. This is the space you will pick f
 	```
 
 
-2. Deploy a sample App to PCF
+3. Deploy a sample App to PCF
 	We will use a sample hello world node.js app from this [git repo](https://github.com/apigee/pivotal-cf-apigee)
 
 	```
@@ -103,7 +103,7 @@ PCF_SPACE: An org can contain multiple spaces. This is the space you will pick f
 	
 	![image alt text](./media/image_0.png)
 	
-3. Login to Apigee, through Apigee's SSO
+4. Login to Apigee, through Apigee's SSO
 
 	If you are on Linux/mac, the following commands should give you a valid token that you can use for the next step
 	
@@ -111,7 +111,8 @@ PCF_SPACE: An org can contain multiple spaces. This is the space you will pick f
 	curl https://login.apigee.com/resources/scripts/sso-cli/ssocli-bundle.zip -o "ssocli-bundle.zip"
 	tar xvf ssocli-bundle.zip
 	mkdir ~/.sso-cli
-	./get_token > ~/.sso-cli/valid_token.dat
+	./get_token
+        cp -p valid_token.dat ~/.sso-cli/.
 	```
 	
 	These steps will create an valid token to ~/.sso-cli/valid_token.dat
@@ -124,7 +125,8 @@ PCF_SPACE: An org can contain multiple spaces. This is the space you will pick f
 	
 	You will use the access_token from the JSON 
 	
-3. Creating an Apigee Edge Service Broker binding for your app
+5. Creating an Apigee Edge Service Broker binding for your app
+        **You Do NOT need to do this step in a Shared PCF Space, such as during a DevJam**
 	We will now add apigee-edge service to our PCF_ORG.
 	First lets make sure that apigee-edge tile has been enabled for this org
 	```
@@ -132,7 +134,7 @@ PCF_SPACE: An org can contain multiple spaces. This is the space you will pick f
 	```
 	This should show apigee-edge as one of the available services.
 	```
-	cf create-service apigee-edge org $PCF_ORG
+	cf create-service apigee-edge org apigee
 	```
 	
 	To check that the service has been enabled, try the following command
@@ -142,10 +144,10 @@ PCF_SPACE: An org can contain multiple spaces. This is the space you will pick f
 	```
 	Now we will bind the app (Our Node.js app that servers the Hello API) to an Apigee ORG with the following command.
 	```
-	cf bind-route-service $PCF_APPMGR --hostname $PCF_APPHOST -c '{"org":"'$(echo $ORG)'","env":"'$(echo $ENV)'", "bearer":"'$(cat ~/.sso-cli/valid_token.dat)'", "action":"proxy bind"}'
+	cf bind-route-service $PCF_APPMGR apigee --hostname $PCF_APPHOST -c '{"org":"'$(echo $ORG)'","env":"'$(echo $ENV)'", "bearer":"'$(cat ~/.sso-cli/valid_token.dat)'", "action":"proxy bind"}'
 	```
 
-4. Testing the API
+6. Testing the API
 	Login to [https://apigee.com/edge](https://apigee.com/edge)
 	Go to API Proxies
 	You should see an API Proxy created by the PCF Service Broker- with the following name `cf-{your_initials}_helloapi.YOUR-SYSTEM-DOMAIN`
@@ -165,7 +167,7 @@ PCF_SPACE: An org can contain multiple spaces. This is the space you will pick f
 	- When you do that the business teams can create API Products, and scale the consumption
 	- If you have swagger spec for this API, you can enable your developers to access these APIs through smartdocs
 	
-5. Where to from here
+7. Where to from here
 	We will add more labs on Apigee PCF Usecases. 
 	- You can add authentication, traffic management and few more directly from your cf CLI, without logging into Apigee
 	- You can choose to have these APIs proxied by Apigee Edge Microgateway, instead of the central runtime
