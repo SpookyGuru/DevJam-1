@@ -173,7 +173,7 @@ PCF_SPACE: An org can contain multiple spaces. This is the space you will pick f
 	```
 	This time, when you send the request, the requst should show up in the trace of your API Proxy.
 
-	In essence, the API you have created from PCF is now managed by Apigee. oh, yeah! *Congratulations!*...
+	In essence, the API you have created from PCF is now managed by Apigee. Oh, yeah! *Congratulations!*...
 
 	What does this mean
 	- You have analytics across all your APIs, created through PCF
@@ -209,13 +209,10 @@ In this lab you have added API Management to an API created in PCF.
 
 * Link to Apigee docs page
 
-    * OAuth 2.0: Configuring a new API proxy [http://docs.apigee.com/api-services/content/understanding-default-oauth-20-configuration ](http://docs.apigee.com/api-services/content/understanding-default-oauth-20-configuration)
+    * Pivotal Cloud Foundry and Apigee [https://apigee.com/about/solutions/pivotal-cloud-foundry-apigee](https://apigee.com/about/solutions/pivotal-cloud-foundry-apigee)
 
-    * Secure an API with OAuth [http://docs.apigee.com/tutorials/secure-calls-your-api-through-oauth-20-client-credentials](http://docs.apigee.com/tutorials/secure-calls-your-api-through-oauth-20-client-credentials) 
+* [Link](https://community.apigee.com) to the Apigee Community 
 
-* [Link](https://community.apigee.com/topics/oauth+2.0.html) to Community posts and articles with topic as "OAuth 2.0" 
-
-* Search and Revoke tokens - [https://community.apigee.com/articles/1571/how-to-enable-oauth-20-token-search-and-revocation.html](https://community.apigee.com/articles/1571/how-to-enable-oauth-20-token-search-and-revocation.html)
 
 # Rate this lab
 
