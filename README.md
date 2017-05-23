@@ -1,4 +1,4 @@
-# Apigee DevJam
+# Apigee DevJam with PCF
 This is the supporting material for a one-day hands-on workshop that introduces developers to Apigee Edge. We call this event an "**Apigee DevJam**".
 
 All of the material here is released under the [MIT license](./LICENSE.md)
@@ -18,8 +18,9 @@ All of the material here is released under the [MIT license](./LICENSE.md)
 7. API Publishing - Developer Portal Customization
 8. Consume APIs
 9. API Analytics - Custom Reports
+10. Pivotal - Apigee Edge Service Broker
 
-NOTE : You can start with the first lab [0. Sign-up with Apigee](https://github.com/nas-hub/DevJam/tree/master/Labs/Core/Lab%200%20Sign-up%20with%20Apigee%20Edge)
+NOTE : You can start with the first lab [0. Sign-up with Apigee](./Labs/Core/Lab%200%20Sign-up%20with%20Apigee%20Edge)
 
 ### [Appendix Labs](./Labs/Appendix)
 * API Development - Create a RESTful API from a SOAP service
