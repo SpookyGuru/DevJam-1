@@ -14,5 +14,5 @@
 
   ![Apigee Dashboard](images/management-ui-new.png)
 
-  Once you have successfully created an account and accessed the Apigee Edge Management UI, you are ready to start on the [Core labs](https://github.com/nas-hub/DevJam/tree/master/Labs/Core).
+  Once you have successfully created an account and accessed the Apigee Edge Management UI, you are ready to start on the [Core labs](../).
  
