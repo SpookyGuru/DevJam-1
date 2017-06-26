@@ -6,13 +6,13 @@
 
 # Use case
 
-You have an API Created in Pivotal Cloud Founday. You want to proxy it through Apigee Edge
+You have an API Created in Pivotal Cloud Foundry. You want to proxy it through Apigee Edge.
 
 # How can Apigee Edge help?
 
-The [Apigee Edge Service Broker for PCF](http://docs.pivotal.io/partners/apigee/index.html) enables developers to manage APIs for their PCF apps through the Apigee Edge management console.
+The [Apigee Edge Service Broker for PCF](http://docs.pivotal.io/partners/apigee/index.html) enable developers to manage APIs for their PCF apps through the Apigee Edge management console.
 
-This lab describes how to push a sample app to Pivotal Cloud Foundry (PCF), create an Apigee Edge service instance, and bind the application to it. After binding the application to the Apigee Edge service instance, requests to the app will be forwarded to an Apigee Edge API proxy for management. Its the same lab as listed in [PCF documentation](http://docs.pivotal.io/partners/apigee/proxying.html)
+This lab describes how to push a sample app to Pivotal Cloud Foundry (PCF), create an Apigee Edge service instance, and bind the application to it. After binding the application to the Apigee Edge service instance, requests to the app will be forwarded to an Apigee Edge API proxy for management. It's the same lab as listed in [PCF documentation](http://docs.pivotal.io/partners/apigee/proxying.html)
 
 # Pre-requisites
 
@@ -20,7 +20,7 @@ This lab describes how to push a sample app to Pivotal Cloud Foundry (PCF), crea
 
 * You have installed [cf CLI](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html).
 
-* You have an Apigee account and have access to an Apigee org
+* You have an Apigee account and have access to an Apigee org.
 
 # Instructions
 
@@ -36,7 +36,7 @@ PCF_ORG: The instance of your PCF deployment. If you are familiar with PCF, you 
 
 PCF_SPACE: An org can contain multiple spaces. This is the space you will pick for this lab
 
-1. Setup Environment Variables
+1. Setup Environment variables
    ```
    export PCF_DOMAIN=http://api.system.google.pcflabs.io
    export PCF_ORG=DevJam
@@ -93,7 +93,7 @@ PCF_SPACE: An org can contain multiple spaces. This is the space you will pick f
 	cf push
 	```
 	
-	On successful push, you should be able to see your app with the following command
+	On successful push, you should be able to see your app with the following command -
 	
 	```
 	cf apps
@@ -105,7 +105,7 @@ PCF_SPACE: An org can contain multiple spaces. This is the space you will pick f
 	
 4. Login to Apigee, through Apigee's SSO
 
-	If you are on Linux/mac, the following commands should give you a valid token that you can use for the next step
+	If you are on Linux/Mac, the following commands should give you a valid token that you can use for the next step
 	
 	```
 	curl https://login.apigee.com/resources/scripts/sso-cli/ssocli-bundle.zip -o "ssocli-bundle.zip"
@@ -117,18 +117,18 @@ PCF_SPACE: An org can contain multiple spaces. This is the space you will pick f
 	
 	These steps will create an valid token to ~/.sso-cli/valid_token.dat
 	
-	If you are on windows/or want to get the access token manually, you have to issue an HTTP call, similar to this
+	If you are on Windows/or want to get the access token manually, you have to issue an HTTP call, similar to this
 	
 	```
 	curl -H 'Content-Type:application/x-www-form-urlencoded;charset=utf-8' -H 'Accept: application/json;charset=utf-8' -H 'Authorization: Basic ZWRnZWNsaTplZGdlY2xpc2VjcmV0'  -X POST https://login.apigee.com/oauth/token -d 'username=*****&password=****&grant_type=password'
 	```
 	
-	You will use the access_token from the JSON 
+	You will use the access_token from the JSON.
 	
 5. Creating an Apigee Edge Service Broker binding for your app
 
 	We will now add apigee-edge service to our PCF_ORG.
-	First lets make sure that apigee-edge tile has been enabled for this org
+	First lets make sure that apigee-edge tile has been enabled for this org.
 	```
 	cf marketplace
 	```
